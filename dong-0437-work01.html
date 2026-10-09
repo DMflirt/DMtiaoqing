@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>奶龙 · 高级美学</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        milkYellow: '#FFE880',
+                        milkOrange: '#FFB852',
+                        softPink: '#FFD6C0',
+                        deepGray: '#2A2A2A'
+                    },
+                    fontFamily: {
+                        sans: ['PingFang SC', 'Microsoft YaHei', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 2px 8px rgba(0,0,0,0.12);
+            }
+            .glass {
+                backdrop-filter: blur(12px);
+                background-color: rgba(255,255,255,0.25);
+            }
+            .float {
+                animation: float 4s ease-in-out infinite;
+            }
+            @keyframes float {
+                0%,100% { transform: translateY(0px); }
+                50% { transform: translateY(-12px); }
+            }
+            .gradient-bg {
+                background: linear-gradient(135deg, #FFF9D7 0%, #FFE2A8 100%);
+            }
+            /* B站视频容器，固定16:9比例 */
+            .bili-player-wrap {
+                width: 100%;
+                max-width: 800px;
+                aspect-ratio: 16 / 9;
+                position:relative;
+            }
+        }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen overflow-x-hidden">
+    <!-- 导航栏 -->
+    <nav class="glass fixed top-0 w-full z-50 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <h1 class="text-deepGray text-2xl font-bold text-shadow">奶龙 NAILONG</h1>
+            <div class="hidden md:flex gap-8 text-deepGray">
+                <a href="#home" class="hover:text-milkOrange transition-colors">首页</a>
+                <a href="#about" class="hover:text-milkOrange transition-colors">关于奶龙</a>
+                <a href="#gallery" class="hover:text-milkOrange transition-colors">图集</a>
+                <a href="#quote" class="hover:text-milkOrange transition-colors">语录</a>
+            </div>
+            <i class="fa fa-bars text-deepGray text-xl md:hidden"></i>
+        </div>
+    </nav>
+
+    <!-- 主banner区域，grid 1fr 1.5fr -->
+    <section id="home" class="pt-32 pb-20 px-6">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-[1fr_1.5fr] gap-12 items-center">
+            <div class="order-2 md:order-1">
+                <h2 class="text-[clamp(2.5rem,5vw,4rem)] font-bold text-deepGray text-shadow leading-tight">
+                    可爱至上<br>
+                    <span class="text-milkOrange">奶龙的奇妙世界</span>
+                </h2>
+                <p class="mt-6 text-lg text-gray-600 max-w-xl">
+                    圆滚滚的黄色小龙，乐观温暖，治愈每一个平凡日常。高级简约美学，重新遇见奶龙。
+                </p>
+                <button class="mt-8 px-8 py-3 bg-milkOrange text-white rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+                    探索奶龙世界
+                </button>
+            </div>
+            <div class="order-1 md:order-2 float">
+                <div class="bili-player-wrap rounded-3xl overflow-hidden shadow-xl relative cursor-pointer" id="videoBox">
+                    <!-- 奶龙GIF播放封面 -->
+                    <img id="playCover" src="https://imgs.qiubiaoqing.com/qiubiaoqing/imgs/6a0244480134amZ4.gif?imageView2/2/w/200" class="w-full h-full object-cover" alt="点击奶龙播放视频">
+                    <iframe id="biliIframe" class="absolute inset-0 w-full h-full hidden" scrolling="no" border="0" frameborder="no" framespacing="0" allow="autoplay; encrypted-media" allowfullscreen="true"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于奶龙 -->
+    <section id="about" class="py-20 px-6 bg-white/60">
+        <div class="max-w-7xl mx-auto">
+            <h3 class="text-3xl font-bold text-deepGray text-center mb-12">关于奶龙</h3>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-8 rounded-2xl shadow-md hover:shadow-xl transition-all bg-white">
+                    <div class="text-4xl text-milkOrange mb-4">💛</div>
+                    <h4 class="text-xl font-semibold mb-3">治愈性格</h4>
+                    <p class="text-gray-600">奶龙性格乐观开朗，心地善良，总是用笑容化解烦恼，温暖无数观众。</p>
+                </div>
+                <div class="p-8 rounded-2xl shadow-md hover:shadow-xl transition-all bg-white">
+                    <div class="text-4xl text-milkOrange mb-4">🤝</div>
+                    <h4 class="text-xl font-semibold mb-3">最好伙伴</h4>
+                    <p class="text-gray-600">和小七相伴，搞笑日常，充满趣味，带来源源不断欢乐。</p>
+                </div>
+                <div class="p-8 rounded-2xl shadow-md hover:shadow-xl transition-all bg-white">
+                    <div class="text-4xl text-milkOrange mb-4">✨</div>
+                    <h4 class="text-xl font-semibold mb-3">高级萌感</h4>
+                    <p class="text-gray-600">简约圆润造型，柔和色彩，不幼稚，高级感可爱美学。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 图集区域 -->
+    <section id="gallery" class="py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <h3 class="text-3xl font-bold text-deepGray text-center mb-12">奶龙图集</h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="aspect-[4/3] rounded-2xl overflow-hidden shadow-lg hover:scale-105 transition duration-400 bg-milkYellow/30 flex items-center justify-center">
+        <img src="https://imgs.qiubiaoqing.com/qiubiaoqing/imgs/6a024445806687tq.jpg?imageView2/2/w/200" class="w-full h-full object-cover" alt="奶龙">
+    </div>
+    <div class="aspect-[4/3] rounded-2xl overflow-hidden shadow-lg hover:scale-105 transition duration-400 bg-softPink/30 flex items-center justify-center">
+        <img src="https://imgs.qiubiaoqing.com/qiubiaoqing/imgs/6a0244568643aS3X.jpg?imageView2/2/w/200" class="w-full h-full object-cover" alt="奶龙">
+    </div>
+    <div class="aspect-[4/3] rounded-2xl overflow-hidden shadow-lg hover:scale-105 transition duration-400 bg-milkOrange/30 flex items-center justify-center">
+        <img src="https://imgs.qiubiaoqing.com/qiubiaoqing/imgs/6a1b38cb47bdduny.gif?imageView2/2/w/200" class="w-full h-full object-cover" alt="奶龙">
+    </div>
+</div>
+        </div>
+    </section>
+
+    <!-- 语录 -->
+    <section id="quote" class="py-20 px-6 bg-white/60">
+        <div class="max-w-3xl mx-auto text-center">
+            <h3 class="text-3xl font-bold text-deepGray mb-10">奶龙小语录</h3>
+            <div class="glass p-10 rounded-3xl shadow-xl">
+                <p class="text-2xl italic text-deepGray">
+                    “开开心心，没有烦恼，生活就要甜甜的。”
+                </p>
+                <p class="mt-6 text-milkOrange font-medium">——奶龙</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="py-8 px-6 text-center text-gray-500">
+        <p>奶龙 NAILONG | 高级主题网页</p>
+    </footer>
+
+<script>
+const videoBox = document.getElementById('videoBox');
+const playCover = document.getElementById('playCover');
+const biliIframe = document.getElementById('biliIframe');
+const videoUrl = "https://player.bilibili.com/player.html?bvid=BV1xsRSBQENA&autoplay=1&danmaku=0";
+
+videoBox.addEventListener('click', function(){
+    playCover.classList.add('hidden');
+    biliIframe.src = videoUrl;
+    biliIframe.classList.remove('hidden');
+})
+</script>
+
+</body>
+</html>
